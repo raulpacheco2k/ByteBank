@@ -9,6 +9,7 @@ public class Manager extends Employee {
         return this.password == password;
     }
 
+    @Override
     public double calculateBonus() {
         return super.getSalary() * this.bonus;
     }
