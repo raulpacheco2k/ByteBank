@@ -1,3 +1,6 @@
+import Bank.CheckingAccount;
+import Bank.Client;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -7,7 +10,7 @@ public class Main {
                 "000.000.000-00"
         );
 
-        Account account = new Account(client);
+        CheckingAccount checkingAccount = new CheckingAccount(client);
 
 
     }
