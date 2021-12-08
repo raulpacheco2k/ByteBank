@@ -8,7 +8,7 @@ public class CheckingAccount extends BankAccount {
 
     @Override
     public void withdraw(double value) {
-        super.withdraw(value * this.getWithdrawalFee());
+        super.balance -= value * this.getWithdrawalFee();
     }
 
     public double getWithdrawalFee() {
