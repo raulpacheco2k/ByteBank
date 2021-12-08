@@ -1,11 +1,14 @@
+package HumanResources;
+
 public class Employee {
 
     private String full_name;
     private String document_cpf;
     private double salary;
+    private double bonus = 0.05;
 
-    public double bonus(){
-        return this.getSalary() * 0.10;
+    public double calculateBonus() {
+        return this.getSalary() * this.bonus;
     }
 
     public String getFull_name() {
