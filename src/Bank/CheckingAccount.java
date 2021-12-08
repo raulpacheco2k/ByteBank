@@ -1,6 +1,6 @@
 package Bank;
 
-public class CheckingAccount extends Account {
+public class CheckingAccount extends BankAccount {
 
     public CheckingAccount(Client holder) {
         super(holder);

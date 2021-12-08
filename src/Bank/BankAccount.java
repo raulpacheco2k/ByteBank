@@ -1,12 +1,12 @@
 package Bank;
 
-public abstract class Account {
+public abstract class BankAccount {
     private double balance;
     int agency;
     String number;
     Client holder;
 
-    public Account(Client holder) {
+    public BankAccount(Client holder) {
         this.holder = holder;
     }
 
@@ -22,7 +22,7 @@ public abstract class Account {
         this.balance -= value;
     }
 
-    public void transfer(double value, Account destiny) {
+    public void transfer(double value, BankAccount destiny) {
         if (value <= this.balance) {
             destiny.deposit(value);
             this.balance -= value;
