@@ -11,12 +11,12 @@ public class Client extends Person implements Authenticable {
     }
 
     @Override
-    public String getSenha() {
+    public String getPassword() {
         return this.password;
     }
 
     @Override
-    public void setSenha(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

@@ -1,6 +1,6 @@
 package InternalSystem;
 
 public interface Authenticable {
-    String getSenha();
-    void setSenha(String password);
+    String getPassword();
+    void setPassword(String password);
 }

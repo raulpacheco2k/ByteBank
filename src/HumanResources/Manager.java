@@ -21,12 +21,12 @@ public class Manager extends Employee implements Authenticable {
     }
 
     @Override
-    public String getSenha() {
+    public String getPassword() {
         return null;
     }
 
     @Override
-    public void setSenha(String password) {
+    public void setPassword(String password) {
 
     }
 }
