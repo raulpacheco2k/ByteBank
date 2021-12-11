@@ -9,7 +9,7 @@ public abstract class Employee extends Person {
     private double bonus = 0.05;
 
     public Employee(String full_name, String document_cpf) {
-        super(full_name, document_cpf, document_cpf);
+        super(full_name, document_cpf);
     }
 
     public abstract double calculateBonus();

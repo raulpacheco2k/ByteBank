@@ -4,7 +4,7 @@ public abstract class Person {
     private String full_name;
     private String document_cpf;
 
-    public Person(String full_name, String document_cpf, String documentCpf) {
+    public Person(String full_name, String document_cpf) {
         this.full_name = full_name;
         this.document_cpf = document_cpf;
     }
