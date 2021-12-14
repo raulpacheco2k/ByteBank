@@ -18,7 +18,14 @@ public abstract class BankAccount {
         this.balance += value;
     }
 
-    public abstract void withdraw(double value);
+    public void withdraw(double value) throws InsufficientBalance {
+        if (this.balance - value < 0) {
+            throw new InsufficientBalance("Saldo insufiente! Seu saldo é de apenas R$" + this.balance + " e você tentou retirar R$" + value);
+        }
+
+        this.balance -= value;
+
+    }
 
     public void transfer(double value, BankAccount destiny) {
         if (value <= this.balance) {

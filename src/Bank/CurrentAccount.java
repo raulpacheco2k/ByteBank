@@ -7,11 +7,12 @@ public class CurrentAccount extends BankAccount {
     }
 
     @Override
-    public void withdraw(double value) {
-        super.balance -= value * this.getWithdrawalFee();
+    public void withdraw(double value){
+        double totalValue = value * this.getWithdrawalFee();
+        super.withdraw(totalValue);
     }
 
-    public double getWithdrawalFee() {
+    private double getWithdrawalFee() {
         return 1.05;
     }
 }

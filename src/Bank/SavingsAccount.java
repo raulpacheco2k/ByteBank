@@ -7,6 +7,6 @@ public class SavingsAccount extends BankAccount {
 
     @Override
     public void withdraw(double value) {
-        super.balance -= value;
+        super.withdraw(value);
     }
 }
