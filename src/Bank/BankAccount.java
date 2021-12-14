@@ -18,9 +18,13 @@ public abstract class BankAccount {
         this.balance += value;
     }
 
-    public void withdraw(double value) throws InsufficientBalance {
+    public void withdraw(double value) throws InsufficientBalanceException, LowExpectedValueException {
         if (this.balance - value < 0) {
-            throw new InsufficientBalance("Saldo insufiente! Seu saldo é de apenas R$" + this.balance + " e você tentou retirar R$" + value);
+            throw new InsufficientBalanceException("Saldo insufiente! Seu saldo é de apenas R$" + this.balance + " e você tentou retirar R$" + value);
+        }
+
+        if (value < 5) {
+            throw new LowExpectedValueException("Você tentou sacar R$" + value + " e o valor mínimo para saque é de R$5,00.");
         }
 
         this.balance -= value;

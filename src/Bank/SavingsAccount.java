@@ -7,6 +7,10 @@ public class SavingsAccount extends BankAccount {
 
     @Override
     public void withdraw(double value) {
-        super.withdraw(value);
+        try {
+            super.withdraw(value);
+        } catch (InsufficientBalanceException | LowExpectedValueException exception) {
+            exception.getMessage();
+        }
     }
 }

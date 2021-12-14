@@ -9,7 +9,11 @@ public class CurrentAccount extends BankAccount {
     @Override
     public void withdraw(double value){
         double totalValue = value * this.getWithdrawalFee();
-        super.withdraw(totalValue);
+        try {
+            super.withdraw(totalValue);
+        } catch (InsufficientBalanceException | LowExpectedValueException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
     private double getWithdrawalFee() {
