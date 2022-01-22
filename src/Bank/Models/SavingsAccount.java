@@ -13,7 +13,7 @@ public class SavingsAccount extends BankAccount implements Taxation {
         try {
             super.withdraw(value, this.getWithdrawalFee());
         } catch (InsufficientBalanceException | LowExpectedValueException exception) {
-            exception.getMessage();
+            System.out.println(exception.getMessage());
         }
     }
 
