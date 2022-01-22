@@ -1,4 +1,4 @@
-package Bank;
+package br.com.bytebank.Bank.Models;
 
 public abstract class Person {
     private String full_name;

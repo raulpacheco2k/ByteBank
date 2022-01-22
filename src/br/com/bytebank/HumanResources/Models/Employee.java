@@ -1,6 +1,6 @@
-package HumanResources;
+package br.com.bytebank.HumanResources.Models;
 
-import Bank.Person;
+import br.com.bytebank.Bank.Models.Person;
 
 public abstract class Employee extends Person {
 

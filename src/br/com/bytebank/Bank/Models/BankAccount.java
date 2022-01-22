@@ -1,4 +1,8 @@
-package Bank;
+package br.com.bytebank.Bank.Models;
+
+import br.com.bytebank.Bank.Exceptions.InsufficientBalanceException;
+import br.com.bytebank.Bank.Exceptions.LowExpectedValueException;
+import br.com.bytebank.Bank.Models.Client;
 
 public abstract class BankAccount {
     protected double balance;

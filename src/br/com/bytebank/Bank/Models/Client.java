@@ -1,8 +1,8 @@
-package Bank;
+package br.com.bytebank.Bank.Models;
 
-import HumanResources.Occupation;
-import InternalSystem.Authenticable;
-import InternalSystem.Authenticator;
+import br.com.bytebank.HumanResources.Models.Occupation;
+import br.com.bytebank.InternalSystem.Interfaces.Authenticable;
+import br.com.bytebank.InternalSystem.Models.Authenticator;
 
 public class Client extends Person implements Authenticable {
 

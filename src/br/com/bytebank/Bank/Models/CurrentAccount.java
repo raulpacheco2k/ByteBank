@@ -1,8 +1,8 @@
-package Bank.Models;
+package br.com.bytebank.Bank.Models;
 
-import Bank.Exceptions.InsufficientBalanceException;
-import Bank.Exceptions.LowExpectedValueException;
-import Bank.Taxation;
+import br.com.bytebank.Bank.Exceptions.InsufficientBalanceException;
+import br.com.bytebank.Bank.Exceptions.LowExpectedValueException;
+import br.com.bytebank.Bank.Interfaces.Taxation;
 
 public class CurrentAccount extends BankAccount implements Taxation {
 

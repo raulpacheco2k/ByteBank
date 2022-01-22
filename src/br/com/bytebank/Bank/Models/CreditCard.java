@@ -1,4 +1,4 @@
-package Bank;
+package br.com.bytebank.Bank.Models;
 
 public class CreditCard {
     private Client client;

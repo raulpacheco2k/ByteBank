@@ -1,4 +1,4 @@
-package Bank;
+package br.com.bytebank.Bank.Models;
 
 public enum TypeCreditCard {
     Gold(3.000, 300.0),

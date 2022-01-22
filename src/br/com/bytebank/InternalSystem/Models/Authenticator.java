@@ -1,4 +1,6 @@
-package InternalSystem;
+package br.com.bytebank.InternalSystem.Models;
+
+import br.com.bytebank.InternalSystem.Interfaces.Authenticable;
 
 public class Authenticator implements Authenticable {
     String password;

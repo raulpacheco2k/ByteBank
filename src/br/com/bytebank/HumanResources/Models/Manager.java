@@ -1,11 +1,10 @@
-package HumanResources;
+package br.com.bytebank.HumanResources.Models;
 
-import InternalSystem.Authenticable;
+import br.com.bytebank.InternalSystem.Interfaces.Authenticable;
 
 public class Manager extends Employee implements Authenticable {
 
     private int password;
-    private double bonus = 0.1;
 
     public Manager(String full_name, String document_cpf) {
         super(full_name, document_cpf);

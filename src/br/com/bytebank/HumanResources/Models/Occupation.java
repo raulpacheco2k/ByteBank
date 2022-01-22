@@ -1,4 +1,4 @@
-package HumanResources;
+package br.com.bytebank.HumanResources.Models;
 
 public class Occupation {
     private double salary;
