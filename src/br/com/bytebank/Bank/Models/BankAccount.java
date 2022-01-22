@@ -2,7 +2,6 @@ package br.com.bytebank.Bank.Models;
 
 import br.com.bytebank.Bank.Exceptions.InsufficientBalanceException;
 import br.com.bytebank.Bank.Exceptions.LowExpectedValueException;
-import br.com.bytebank.Bank.Models.Client;
 
 public abstract class BankAccount {
     protected double balance;
@@ -22,6 +21,12 @@ public abstract class BankAccount {
         this.balance += value;
     }
 
+    /**
+     * @param value - Withdrawal value
+     * @param fee - Withdrawal fee
+     * @throws InsufficientBalanceException - Withdrawal amount greater than the amount in the account
+     * @throws LowExpectedValueException - Withdrawal amount lower than allowed
+     */
     public void withdraw(double value, double fee) throws InsufficientBalanceException, LowExpectedValueException {
         double totalValue = value * fee;
 
