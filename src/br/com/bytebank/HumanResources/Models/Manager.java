@@ -15,8 +15,8 @@ public class Manager extends Employee implements Authenticable {
     }
 
     @Override
-    public double calculateBonus() {
-        return super.getSalary() * this.bonus;
+    public double calculateBonus(double bonus) {
+        return super.getSalary() * bonus;
     }
 
     @Override
