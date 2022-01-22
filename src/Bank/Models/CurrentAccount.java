@@ -1,6 +1,10 @@
-package Bank;
+package Bank.Models;
 
-public class CurrentAccount extends BankAccount {
+import Bank.Exceptions.InsufficientBalanceException;
+import Bank.Exceptions.LowExpectedValueException;
+import Bank.Taxation;
+
+public class CurrentAccount extends BankAccount implements Taxation {
 
     public CurrentAccount(Client holder) {
         super(holder);
