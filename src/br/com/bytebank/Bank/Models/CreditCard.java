@@ -1,8 +1,9 @@
 package br.com.bytebank.Bank.Models;
 
 public class CreditCard {
-    private Client client;
-    private TypeCreditCard typeCreditCard;
+    private final Client client;
+    private final TypeCreditCard typeCreditCard;
+    private double invoice;
 
     public CreditCard(Client client, TypeCreditCard typeCreditCard) {
         this.client = client;
@@ -13,15 +14,31 @@ public class CreditCard {
         return client;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public TypeCreditCard getTypeCreditCard() {
         return typeCreditCard;
     }
 
-    public void setTypeCreditCard(TypeCreditCard typeCreditCard) {
-        this.typeCreditCard = typeCreditCard;
+    public double getInvoice() {
+        return invoice;
+    }
+
+    public double getFreeBalance() {
+        return this.typeCreditCard.limit - this.getInvoice();
+    }
+
+    public boolean spendCredit(double value) {
+        if (value > 0 && value <= this.getFreeBalance()) {
+            this.invoice += value;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean payBill(double value) {
+        if (value > 0) {
+            this.invoice -= value;
+            return true;
+        }
+        return false;
     }
 }
