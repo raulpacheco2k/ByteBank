@@ -43,19 +43,26 @@ public class CurrentAccountTest {
 
         this.currentAccount.deposit(depositAmount);
         this.currentAccount.withdraw(withdrawalValue);
+
         Assert.assertEquals(this.currentAccount.balance(), finalBalance, 0.0);
     }
 
     @Test
     public void withdrawOverBalance() {
-        this.currentAccount.deposit(500);
-        this.currentAccount.withdraw(500.01);
-        Assert.assertEquals(500, this.currentAccount.balance(), 0.0);
+        double depositAmount = 500;
+        double withdrawalValue = 500.01;
+        double finalBalance = 500;
+
+        this.currentAccount.deposit(depositAmount);
+        this.currentAccount.withdraw(withdrawalValue);
+
+        Assert.assertEquals(finalBalance, this.currentAccount.balance(), 0.0);
     }
 
     @Test
     public void depositWithNegativeValue() {
         this.currentAccount.deposit(-1);
+
         Assert.assertEquals(0, this.currentAccount.balance(), 0.0);
     }
 }
