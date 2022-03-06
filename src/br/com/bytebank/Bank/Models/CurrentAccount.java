@@ -10,6 +10,11 @@ public class CurrentAccount extends BankAccount implements Taxation {
         super(holder);
     }
 
+    @Override
+    public double balance() {
+        return super.balance();
+    }
+
     public void withdraw(double value){
         try {
             super.withdraw(value, this.getWithdrawalFee());
