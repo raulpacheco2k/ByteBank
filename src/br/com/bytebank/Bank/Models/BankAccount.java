@@ -31,14 +31,14 @@ public abstract class BankAccount {
 
     /**
      * @param value - Withdrawal value
-     * @param fee - Withdrawal fee
+     * @param fee   - Withdrawal fee
      * @throws InsufficientBalanceException - Withdrawal amount greater than the amount in the account
-     * @throws LowExpectedValueException - Withdrawal amount lower than allowed
+     * @throws LowExpectedValueException    - Withdrawal amount lower than allowed
      */
     public void withdraw(double value, double fee) throws InsufficientBalanceException, LowExpectedValueException {
         double totalValue = value * fee;
 
-        if (this.balance - totalValue < 0) {
+        if (totalValue > this.balance) {
             if (fee > 1) {
                 throw new InsufficientBalanceException("Saldo insufiente! Seu saldo é de R$ " + this.balance + " e você tentou retirar R$" + totalValue + " sendo R$" + (totalValue - value) + " de taxa de transação.");
             } else {
@@ -50,7 +50,7 @@ public abstract class BankAccount {
             throw new LowExpectedValueException("Você tentou sacar R$" + value + " e o valor mínimo para saque é de R$5,00.");
         }
 
-        this.balance -= value;
+        this.balance -= totalValue;
 
     }
 
