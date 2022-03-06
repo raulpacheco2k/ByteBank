@@ -10,7 +10,6 @@ public abstract class BankAccount {
     Client holder;
 
     /**
-     *
      * @param holder - Bank account holder
      */
     public BankAccount(Client holder) {
@@ -22,11 +21,12 @@ public abstract class BankAccount {
     }
 
     /**
-     *
      * @param value - Deposit value
      */
     public void deposit(double value) {
-        this.balance += value;
+        if (value > 0) {
+            this.balance += value;
+        }
     }
 
     /**
@@ -55,8 +55,7 @@ public abstract class BankAccount {
     }
 
     /**
-     *
-     * @param value - Transfer value
+     * @param value   - Transfer value
      * @param destiny - Destination bank account
      */
     public void transfer(double value, BankAccount destiny) {
