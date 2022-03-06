@@ -19,6 +19,6 @@ public class CurrentAccount extends BankAccount implements Taxation {
     }
 
     public double getWithdrawalFee() {
-        return 1;
+        return 1.05;
     }
 }

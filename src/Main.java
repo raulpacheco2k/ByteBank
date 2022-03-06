@@ -11,7 +11,10 @@ public class Main {
                 "Quality Assurance Analyst"
         );
 
-        CurrentAccount checkingAccount = new CurrentAccount(client);
+        CurrentAccount currentAccount = new CurrentAccount(client);
+        currentAccount.deposit(1000);
+        currentAccount.withdraw(1200);
+
         CreditCard creditCard = new CreditCard(client, TypeCreditCard.Platinum);
 
         System.out.println(creditCard.getFreeBalance());
