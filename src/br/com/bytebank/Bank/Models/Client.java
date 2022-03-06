@@ -6,11 +6,11 @@ import br.com.bytebank.InternalSystem.Models.Authenticator;
 
 public class Client extends Person implements Authenticable {
 
-    private Authenticator authenticator;
+    private final Authenticator authenticator;
     public Occupation occupation;
 
-    public Client(String full_name, String document_cpf, double salary, String profession) {
-        super(full_name, document_cpf);
+    public Client(Person person, double salary, String profession) {
+        super(person.getFull_name(), person.getDocument_cpf());
         this.authenticator = new Authenticator();
         this.occupation = new Occupation(salary, profession);
     }

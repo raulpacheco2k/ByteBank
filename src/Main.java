@@ -1,14 +1,12 @@
-import br.com.bytebank.Bank.Models.Client;
-import br.com.bytebank.Bank.Models.CreditCard;
-import br.com.bytebank.Bank.Models.CurrentAccount;
-import br.com.bytebank.Bank.Models.TypeCreditCard;
+import br.com.bytebank.Bank.Models.*;
 
 public class Main {
     public static void main(String[] args) {
 
+        Person person = new Person("Raul Pacheco Domingos", "000.000.000-00");
+
         Client client = new Client(
-                "Raul Pacheco Domingos",
-                "000.000.000-00",
+                person,
                 1234.56,
                 "Quality Assurance Analyst"
         );

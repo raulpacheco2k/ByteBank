@@ -1,39 +1,31 @@
 package br.com.bytebank.HumanResources.Models;
 
 import br.com.bytebank.Bank.Models.Person;
+import br.com.bytebank.HumanResources.Interfaces.Bonifiable;
 
-public abstract class Employee extends Person {
+public abstract class Employee extends Person implements Bonifiable<Employee> {
 
-    String profession;
-    private double salary;
+    private Occupation occupation;
 
-    public Employee(String full_name, String document_cpf) {
-        super(full_name, document_cpf);
+    public Employee(Person person, double salary, String profession) {
+        super(person.getFull_name(), person.getDocument_cpf());
+        this.occupation = new Occupation(salary, profession);
     }
-
-    public abstract double calculateBonus(double bonus);
 
     public String getFull_name() {
         return super.getFull_name();
-    }
-
-    public void setFull_name(String full_name) {
-        super.setFull_name(full_name);
     }
 
     public String getDocument_cpf() {
         return super.getDocument_cpf();
     }
 
-    public void setDocument_cpf(String document_cpf) {
-        super.setDocument_cpf(document_cpf);
+    public Occupation getOccupation() {
+        return occupation;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public Employee setOccupation(Occupation occupation) {
+        this.occupation = occupation;
+        return this;
     }
 }

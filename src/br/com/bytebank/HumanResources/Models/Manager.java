@@ -1,13 +1,14 @@
 package br.com.bytebank.HumanResources.Models;
 
+import br.com.bytebank.Bank.Models.Person;
 import br.com.bytebank.InternalSystem.Interfaces.Authenticable;
 
 public class Manager extends Employee implements Authenticable {
 
     private int password;
 
-    public Manager(String full_name, String document_cpf) {
-        super(full_name, document_cpf);
+    public Manager(Person person, double salary, String profession) {
+        super(person, salary, profession);
     }
 
     public boolean authentication(int password) {
@@ -15,8 +16,18 @@ public class Manager extends Employee implements Authenticable {
     }
 
     @Override
+    public Employee setBonus() {
+        return null;
+    }
+
+    @Override
+    public double getBonus() {
+        return 0;
+    }
+
+    @Override
     public double calculateBonus(double bonus) {
-        return super.getSalary() * bonus;
+        return super.getOccupation().getSalary() * bonus;
     }
 
     @Override
