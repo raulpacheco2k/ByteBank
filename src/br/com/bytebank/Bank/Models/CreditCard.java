@@ -23,7 +23,7 @@ public class CreditCard {
     }
 
     public double getFreeBalance() {
-        return this.typeCreditCard.limit - this.getInvoice();
+        return this.typeCreditCard.getLimit() - this.getInvoice();
     }
 
     public boolean spendCredit(double value) {
