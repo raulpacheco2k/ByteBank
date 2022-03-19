@@ -3,7 +3,7 @@ package br.com.bytebank.Bank.Models;
 public class CreditCard {
     private final Client client;
     private final TypeCreditCard typeCreditCard;
-    private double invoice;
+    private final Invoice invoice = new Invoice();
 
     public CreditCard(Client client, TypeCreditCard typeCreditCard) {
         this.client = client;
@@ -19,7 +19,7 @@ public class CreditCard {
     }
 
     public double getInvoice() {
-        return invoice;
+        return this.invoice.invoiceAmount();
     }
 
     public double getFreeBalance() {
@@ -27,18 +27,16 @@ public class CreditCard {
     }
 
     public boolean spendCredit(double value) {
+        Purchase purchase = new Purchase(value);
+
         if (value > 0 && value <= this.getFreeBalance()) {
-            this.invoice += value;
+            this.invoice.addPurchase(purchase);
             return true;
         }
         return false;
     }
 
     public boolean payBill(double value) {
-        if (value > 0 && value <= invoice) {
-            this.invoice -= value;
-            return true;
-        }
-        return false;
+        return this.invoice.pay(value);
     }
 }

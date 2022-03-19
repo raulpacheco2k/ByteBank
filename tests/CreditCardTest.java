@@ -32,13 +32,15 @@ public class CreditCardTest {
     @Test
     public void spendAllTheLimit() {
         double amountSpent = this.creditCard.getTypeCreditCard().getLimit();
-        double atualFreeBalance = TypeCreditCard.Gold.getLimit() - amountSpent;
-
+        double expectedFreeBalance = TypeCreditCard.Gold.getLimit() - amountSpent;
 
         this.creditCard.spendCredit(amountSpent);
 
-        Assert.assertEquals(this.creditCard.getFreeBalance(), atualFreeBalance, 0.0);
-        Assert.assertEquals(this.creditCard.getInvoice(), amountSpent, 0.0);
+        double freeBalance = this.creditCard.getFreeBalance();
+        double invoice = this.creditCard.getInvoice();
+
+        Assert.assertEquals(freeBalance, expectedFreeBalance, 0.0);
+        Assert.assertEquals(invoice, amountSpent, 0.0);
     }
 
     @Test
@@ -54,10 +56,14 @@ public class CreditCardTest {
 
     @Test
     public void payLessThanTheTotalPayable() {
-        this.creditCard.spendCredit(200);
+        double amountSpent = 200;
+        double amountPay = 100;
+        double expectedInvoice = 100;
 
-        Assert.assertTrue(this.creditCard.payBill(100));
-        Assert.assertEquals(100, this.creditCard.getInvoice(), 0.0);
+        this.creditCard.spendCredit(amountSpent);
+
+        Assert.assertTrue(this.creditCard.payBill(amountPay));
+        Assert.assertEquals(expectedInvoice, this.creditCard.getInvoice(), 0.0);
     }
 
     @Test
