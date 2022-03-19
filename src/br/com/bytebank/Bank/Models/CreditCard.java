@@ -35,7 +35,7 @@ public class CreditCard {
     }
 
     public boolean payBill(double value) {
-        if (value > 0) {
+        if (value > 0 && value <= invoice) {
             this.invoice -= value;
             return true;
         }
