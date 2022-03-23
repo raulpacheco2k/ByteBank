@@ -10,7 +10,7 @@ public class Client extends Person implements Authenticable {
     public Occupation occupation;
 
     public Client(Person person, double salary, String profession) {
-        super(person.getFull_name(), person.getDocument_cpf());
+        super(person.getFullName(), person.getDocument_cpf());
         this.authenticator = new Authenticator();
         this.occupation = new Occupation(salary, profession);
     }

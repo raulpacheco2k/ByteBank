@@ -9,7 +9,7 @@ public class Person {
         this.document_cpf = document_cpf;
     }
 
-    public String getFull_name() {
+    public String getFullName() {
         return full_name;
     }
 

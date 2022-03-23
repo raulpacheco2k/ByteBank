@@ -8,12 +8,12 @@ public abstract class Employee extends Person implements Bonifiable<Employee> {
     private Occupation occupation;
 
     public Employee(Person person, double salary, String profession) {
-        super(person.getFull_name(), person.getDocument_cpf());
+        super(person.getFullName(), person.getDocument_cpf());
         this.occupation = new Occupation(salary, profession);
     }
 
-    public String getFull_name() {
-        return super.getFull_name();
+    public String getFullName() {
+        return super.getFullName();
     }
 
     public String getDocument_cpf() {
