@@ -3,7 +3,7 @@ package br.com.bytebank.Bank.Models;
 import br.com.bytebank.Bank.Exceptions.InsufficientBalanceException;
 import br.com.bytebank.Bank.Exceptions.LowExpectedValueException;
 
-public abstract class BankAccount {
+public abstract class BankAccount implements Comparable<BankAccount> {
     protected double balance;
     int agency;
     String number;
@@ -18,6 +18,10 @@ public abstract class BankAccount {
 
     public double balance() {
         return this.balance;
+    }
+
+    public Client getHolder() {
+        return holder;
     }
 
     /**
@@ -63,5 +67,10 @@ public abstract class BankAccount {
             destiny.deposit(value);
             this.balance -= value;
         }
+    }
+
+    @Override
+    public int compareTo(BankAccount o) {
+        return this.getHolder().getFullName().compareTo(o.getHolder().getFullName());
     }
 }

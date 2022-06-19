@@ -1,29 +1,18 @@
-import br.com.bytebank.Bank.Models.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        readFile();
+    }
 
-        Person person = new Person("Raul Pacheco Domingos", "000.000.000-00");
+    public static void readFile() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("lorem2.txt"));
 
-        Client client = new Client(
-                person,
-                1234.56,
-                "Quality Assurance Analyst"
-        );
-
-        CurrentAccount currentAccount = new CurrentAccount(client);
-        currentAccount.deposit(1000);
-        currentAccount.withdraw(1200);
-
-        CreditCard creditCard = new CreditCard(client, TypeCreditCard.Platinum);
-
-        System.out.println(creditCard.getFreeBalance());
-        creditCard.spendCredit(5000);
-        System.out.println(creditCard.getFreeBalance());
-        creditCard.spendCredit(350);
-        System.out.println(creditCard.getFreeBalance());
-        creditCard.payBill(500);
-        System.out.println(creditCard.getFreeBalance());
+        String lines = bufferedReader.readLine();
+        System.out.println(lines);
+        bufferedReader.close();
 
     }
 }

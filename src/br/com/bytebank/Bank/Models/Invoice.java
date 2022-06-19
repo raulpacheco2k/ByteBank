@@ -1,10 +1,11 @@
 package br.com.bytebank.Bank.Models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Invoice {
 
-    private final ArrayList<Purchase> purchases = new ArrayList<>();
+    private final List<Purchase> purchases = new ArrayList<>();
     private double amountPaid;
 
     public void addPurchase(Purchase purchase) {
