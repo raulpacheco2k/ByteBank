@@ -3,10 +3,13 @@ import br.com.bytebank.Bank.Models.CreditCard;
 import br.com.bytebank.Bank.Models.Person;
 import br.com.bytebank.Bank.Models.TypeCreditCard;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CreditCardTest {
 
     CreditCard creditCard;
@@ -19,7 +22,7 @@ class CreditCardTest {
     }
 
     @Test
-    void spendBelowTheLimit() {
+    void Spend_below_the_limit() {
         double creditCardLimite = TypeCreditCard.Gold.getLimit();
         double amountSpent = 900;
         double atualFreeBalance = creditCardLimite - amountSpent;
@@ -31,7 +34,7 @@ class CreditCardTest {
     }
 
     @Test
-    void spendAllTheLimit() {
+    void Spend_all_the_limit() {
         double amountSpent = this.creditCard.getTypeCreditCard().getLimit();
         double expectedFreeBalance = TypeCreditCard.Gold.getLimit() - amountSpent;
 
@@ -45,7 +48,7 @@ class CreditCardTest {
     }
 
     @Test
-    void spendOverTheLimit() {
+    void Spend_over_the_limit() {
         double amountSpent = 1300;
         double expectedInvoice = 0;
 
@@ -56,7 +59,7 @@ class CreditCardTest {
     }
 
     @Test
-    void payLessThanTheTotalPayable() {
+    void Pay_less_than_the_total_payable() {
         double amountSpent = 200;
         double amountPay = 100;
         double expectedInvoice = 100;
@@ -68,7 +71,7 @@ class CreditCardTest {
     }
 
     @Test
-    void payTheTotalToPay() {
+    void Pay_the_total_to_pay() {
         this.creditCard.spendCredit(1200);
 
         assertTrue(this.creditCard.payBill(1200));
@@ -76,7 +79,7 @@ class CreditCardTest {
     }
 
     @Test
-    void payMoreThanTheTotalPayable() {
+    void Pay_more_than_the_total_payable() {
         this.creditCard.spendCredit(1000);
 
         assertFalse(this.creditCard.payBill(1001));
