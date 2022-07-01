@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,12 +49,12 @@ class CreditCardTest {
         assertEquals(invoice, amountSpent, 0.0);
     }
 
-    @Test
-    void Spend_over_the_limit() {
-        double amountSpent = 1300;
+    @ParameterizedTest(name = "Spend over the limit {0}")
+    @ValueSource(doubles = {1200.01, Double.MAX_VALUE})
+    void Spend_over_the_limit(double intValueSource) {
         double expectedInvoice = 0;
 
-        this.creditCard.spendCredit(amountSpent);
+        this.creditCard.spendCredit(intValueSource);
 
         assertEquals(this.creditCard.getFreeBalance(), this.creditCard.getTypeCreditCard().getLimit(), 0.0);
         assertEquals(this.creditCard.getInvoice(), expectedInvoice, 0.0);
